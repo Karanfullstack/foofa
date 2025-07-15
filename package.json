@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+   "@fontsource-variable/hubot-sans": "^5.2.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.6.3"
+    "react-router-dom": "^7.6.3",
+    "swiper": "^11.2.10"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
