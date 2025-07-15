@@ -8,15 +8,46 @@ import Container from "./Container";
 import arrow from "../assets/chevron-left.svg";
 import Card from "./Card";
 
+import screen1 from "../assets/Screenshot-2.svg";
+import screen2 from "../assets/Screenshot-1.svg";
+import screen3 from "../assets/Screenshot-5.svg";
+import screen4 from "../assets/Screenshot-6.svg";
+import screen5 from "../assets/Screenshot-7.svg";
+import screen6 from "../assets/Screenshot-3.svg";
+
+const data = [
+    { img: screen1, text: "Zbieraj punkty w predykcjach przed i w trakcie meczu!" },
+    {
+        img: screen2,
+        text: "Stwórz swój profil i udowodnij, że jesteś piłkarskim Ekspertem!",
+    },
+    {
+        img: screen3,
+        text: "Zapraszaj ziomków i pokaż im kto tu rządzi!",
+    },
+    {
+        img: screen4,
+        text: "Walcz o zwycięstwo w rankingu ogólnym, klubowym i prywatnym!",
+    },
+    {
+        img: screen5,
+        text: "Buduj historię Twoich wyników i osiągnięć!",
+    },
+    {
+        img: screen6,
+        text: "Bądź na bieżąco z ciekawostkami i wynikami!",
+    },
+];
+
 export default function Slides() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const [activeBtn, setActiveBtn] = useState("left");
 
     return (
-        <div className="w-full font-hubot font-[800] px-5 bg-black pt-4 min-h-screen sm:h-screen">
+        <div className="w-full font-hubot font-[800] px-5 bg-black pt-4 min-h-[500px] sm:h-screen">
             <Container size="1250px">
-                <div className="h-[760px] w-full">
+                <div className="h-[560px] w-full">
                     {/* Header with Arrows */}
                     <div className="h-[48px] flex justify-between items-center px-8">
                         <span className="text-white text-lg font-normal">
@@ -54,7 +85,7 @@ export default function Slides() {
                     <section className="mt-10 px-4">
                         <Swiper
                             modules={[Navigation]}
-                            spaceBetween={100}
+                            spaceBetween={50}
                             slidesPerView={1}
                             breakpoints={{
                                 768: { slidesPerView: 2 },
@@ -67,18 +98,11 @@ export default function Slides() {
                                 swiper.navigation.update();
                             }}
                         >
-                            <SwiperSlide>
-                                <Card />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Card />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Card />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Card />
-                            </SwiperSlide>
+                            {data.map((item, index) => (
+                                <SwiperSlide>
+                                    <Card key={index} data={item} />
+                                </SwiperSlide>
+                            ))}
                         </Swiper>
                     </section>
                 </div>
